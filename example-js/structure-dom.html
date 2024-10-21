@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Structure Dom Example</title>
+    <script src="js/main.js"></script>
+</head>
+<body>
+    <header id="header">
+        <h1>Titre Principal</h1>
+    </header>
+      <section class="content">
+        <h2>Sous-titre</h2>
+        <p id="paragraphe">Paragraphe dans la section.</p>
+        <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element">Dev mozilla Html Element</a> 
+        <a href="https://www.w3schools.com/tags/default.asp">W3Schools Html Element</a>
+        <img class="image" src="https://cdn.midjourney.com/1ba442b6-8e7f-403b-83a7-86e1e880767a/0_0.png" alt="Image de remplacement">
+        <button id="bouton">Cliquez-moi</button>
+      </section>
+      <footer>
+        <p>Pied de page</p>
+      </footer>
+    
+      <script>
+        // Accéder au titre principal par son id
+        const header = document.getElementById('header');
+        console.log(header);
+    
+        // Accéder au paragraphe par son id
+        const paragraphe = document.getElementById('paragraphe');
+        console.log(paragraphe.textContent); // Affiche : Paragraphe dans la section.
+    
+        // Modifier le texte du paragraphe
+        paragraphe.textContent = "Texte modifié par JavaScript";
+    
+        // Modifier l'attribut 'src' d'une image
+        const image = document.querySelector('.image');
+        image.src = "https://cdn.midjourney.com/ed159045-5fbe-4d84-8cfe-99ae91e4bbc9/0_3.png";
+        image.alt = "Image modifiée par JavaScript";
+
+      // Accéder à tous les éléments <p> avec querySelectorAll
+        const allParagraphs = document.querySelectorAll('p');
+        allParagraphs.forEach((p, index) => {
+          console.log(`Paragraphe ${index + 1} : ${p.textContent}`);
+        });
+
+
+        // Ajouter un nouvel élément dans le body
+        const nouveauParagraphe = document.createElement('p');
+        nouveauParagraphe.textContent = "Paragraphe ajouté dynamiquement.";
+        document.body.appendChild(nouveauParagraphe);
+    
+        // Accéder au nœud parent d'un élément
+        console.log(paragraphe.parentNode); // Affiche : <section class="content">...</section>
+    
+        // Accéder au premier enfant de la section
+        const section = document.querySelector('section');
+        console.log(section.firstChild); // Affiche le premier nœud enfant de la section
+
+        // Supprimer un paragraphe de la page
+        const footerParagraph = document.querySelector('footer p');
+        if (footerParagraph) {
+          footerParagraph.remove();
+          console.log('Paragraphe du pied de page supprimé.');
+        }
+
+        // Ajouter une classe à un bouton et modifier son style pour le rendre plus visible
+        const bouton = document.getElementById('bouton');
+        bouton.classList.add('highlighted-button');
+        console.log('Classe ajoutée au bouton pour le rendre plus visible.');
+
+
+        // Ajouter un événement au bouton pour changer sa couleur lors du clic
+        bouton.addEventListener('click', () => {
+          bouton.classList.toggle('clicked-button');
+          console.log('Le bouton a changé de couleur après avoir été cliqué.');
+        });
+      </script>
+    </body>
+</body>
+</html>
