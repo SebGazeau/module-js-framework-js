@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire avec Liste</title>
+    <script src="js/last-exo.js"></script>
+</head>
+<body>
+    <h2>Ajouter un élément à la liste</h2>
+    <form id="form">
+        <input type="text" id="inputField" placeholder="Entrez un texte" required>
+        <button type="button" onclick="addItem()">Soumettre</button>
+    </form>
+
+    <ul id="itemList">
+    </ul>
+
+    <script>
+        function addItem() {
+            const inputField = document.getElementById('inputField');
+            const inputValue = inputField.value;
+
+            if (inputValue.trim() !== "") {
+                const listItem = document.createElement('li');
+                listItem.textContent = inputValue;
+
+                const itemList = document.getElementById('itemList');
+                itemList.appendChild(listItem);
+
+                inputField.value = ""; // Réinitialiser le champ
+            }
+        }
+    </script>
+</body>
+</html>

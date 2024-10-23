@@ -22,6 +22,25 @@ for (let i = 0; i < tableau.length; i++) {
     console.log(`${valeur} est un multiple de 5.`);
   }
 }
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// Obtenir les carrés des nombres pairs
+const evenSquares = numbers
+  .filter(num => num % 2 === 0)      // Filtrer les nombres pairs
+  .map(num => num ** 2);             // Calculer le carré de chaque nombre pair
+
+// Exclure les multiples de 3 et calculer la somme des carrés restants
+const filteredSum = evenSquares
+  .filter(num => num % 3 !== 0)      // Exclure les multiples de 3
+  .reduce((acc, num) => acc + num, 0); // Calculer la somme des nombres restants
+
+// Vérifier si la somme est un multiple de 10
+const isMultipleOfTen = filteredSum % 10 === 0;
+
+console.log(`Les carrés des nombres pairs: ${evenSquares}`);
+console.log(`Somme après exclusion des multiples de 3: ${filteredSum}`);
+console.log(`La somme est-elle un multiple de 10 ? ${isMultipleOfTen ? 'Oui' : 'Non'}`);
+
 
 // Création d'une classe représentant un User
 class User {

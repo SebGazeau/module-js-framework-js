@@ -13,3 +13,16 @@ const voiture = {
   
   voiture.afficherDetails(); // Marque : Toyota, Modèle : Corolla, Année : 2021
   voiture.demarrer(); // La voiture démarre...
+
+
+const sym1 = Symbol('id');
+const sym2 = Symbol('id');
+
+console.log(sym1 === sym2); // false - chaque Symbol est unique
+
+const user = {
+  name: 'Alice',
+  [sym1]: 'Identifiant unique'
+};
+
+console.log(user[sym1]); // "Identifiant unique"
